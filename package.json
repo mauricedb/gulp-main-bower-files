@@ -1,0 +1,30 @@
+{
+  "name": "gulp-main-bower-files",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mauricedb/gulp-main-bower-files.git"
+  },
+  "keywords": [
+    "main-bower-files",
+    "gulp"
+  ],
+  "author": "Maurice de Beijer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mauricedb/gulp-main-bower-files/issues"
+  },
+  "homepage": "https://github.com/mauricedb/gulp-main-bower-files",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-debug": "^2.0.1",
+    "gulp-util": "^3.0.5",
+    "main-bower-files": "^2.8.0",
+    "through2": "^2.0.0"
+  }
+}
