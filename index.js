@@ -8,6 +8,7 @@ var through = require('through2');
 var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
 var mainBowerFiles = require('main-bower-files');
+var fs = require('fs');
 
 module.exports = function () {
     return through.obj(function (file, enc, cb) {
@@ -22,6 +23,8 @@ module.exports = function () {
             fileNames.forEach(function (fileName) {
                 var newFile = file.clone();
                 newFile.path = fileName;
+                newFile.base += 'bower_components/';
+                newFile.contents = fs.readFileSync(newFile.path);
                 this.push(newFile);
             }, this);
         }
