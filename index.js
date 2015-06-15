@@ -10,7 +10,7 @@ var PluginError = gutil.PluginError;
 var mainBowerFiles = require('main-bower-files');
 var fs = require('fs');
 
-module.exports = function (filter, opts, cb) {
+module.exports = function (filter, opts, callback) {
     return through.obj(function (file, enc, cb) {
         if (file.isStream()) {
             this.emit('error', new PluginError('gulp-main-bower-files', 'Streams are not supported!'));
@@ -18,7 +18,12 @@ module.exports = function (filter, opts, cb) {
         }
 
         if (file.isBuffer()) {
-            var fileNames = mainBowerFiles(filter, opts, cb);
+            opts = opts || {};
+            opts.filter = filter;
+            opts.paths = opts.path || {};
+            opts.paths.bowerJson = file.path;
+
+            var fileNames = mainBowerFiles(opts, callback);
 
             fileNames.forEach(function (fileName) {
                 var newFile = file.clone();
