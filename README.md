@@ -1,6 +1,9 @@
 # gulp-main-bower-files
 ================
 
+![Dependency Status](https://david-dm.org/mauricedb/gulp-main-bower-files.svg)
+
+
 Use [main-bower-files](https://www.npmjs.com/package/main-bower-files) in a more gulp like way. 
 
 Use the bower.json file as the source and it will create a vinyl stream for each of the files main-bower-files return when parsing the bower.json.
