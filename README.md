@@ -2,7 +2,7 @@
 ================
 
 ![Dependency Status](https://david-dm.org/mauricedb/gulp-main-bower-files.svg)
-
+![Build Status](https://travis-ci.org/mauricedb/gulp-main-bower-files.svg?branch=master)
 
 Use [main-bower-files](https://www.npmjs.com/package/main-bower-files) in a more gulp like way. 
 
