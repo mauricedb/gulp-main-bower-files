@@ -22,13 +22,13 @@ module.exports = function (filter, opts, callback) {
             opts.filter = filter;
             opts.paths = opts.path || {};
             opts.paths.bowerJson = file.path;
+            opts.paths.bowerDirectory = file.base += 'bower_components/';
 
             var fileNames = mainBowerFiles(opts, callback);
 
             fileNames.forEach(function (fileName) {
                 var newFile = file.clone();
                 newFile.path = fileName;
-                newFile.base += 'bower_components/';
                 newFile.contents = fs.readFileSync(newFile.path);
                 this.push(newFile);
             }, this);

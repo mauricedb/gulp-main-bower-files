@@ -4,7 +4,7 @@
   "description": "Use main-bower-files in a more gulp like way.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,11 @@
     "gulp-util": "^3.0.5",
     "main-bower-files": "^2.8.0",
     "through2": "^2.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-debug": "^2.0.1",
+    "mocha": "^2.2.5",
+    "stream-assert": "^2.0.2"
   }
 }
