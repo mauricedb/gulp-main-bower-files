@@ -38,5 +38,31 @@ describe('gulp-main-bower-files', function () {
                 .pipe(streamAssert.length(3))
                 .pipe(streamAssert.end(done));
         });
+
+        it('can override main files with filter', function (done) {
+            gulp.src(__dirname + '/no-bowerrc/bower-simple-multi.json')
+                .pipe(mainBowerFiles('**/*.*', {
+                    overrides: {
+                        multi: {
+                            main: ['*.js', '*.css']
+                        }
+                    }
+                }))
+                .pipe(streamAssert.length(4))
+                .pipe(streamAssert.end(done));
+        });
+
+        it('can override main files without filter', function (done) {
+            gulp.src(__dirname + '/no-bowerrc/bower-simple-multi.json')
+                .pipe(mainBowerFiles({
+                    overrides: {
+                        multi: {
+                            main: ['*.js', '*.css']
+                        }
+                    }
+                }))
+                .pipe(streamAssert.length(4))
+                .pipe(streamAssert.end(done));
+        });
     });
 });

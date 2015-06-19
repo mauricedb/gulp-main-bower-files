@@ -18,6 +18,21 @@ module.exports = function (filter, opts, callback) {
         }
 
         if (file.isBuffer()) {
+            if (typeof filter === 'function') {
+                callback = filter;
+                opts = null;
+                filter = null;
+            } else if (typeof filter !== 'string' && Array.isArray(filter) === false) {
+                if (typeof opts === 'function') {
+                    callback = opts;
+                }
+                opts = filter;
+                filter = null;
+            } else if (typeof opts === 'function') {
+                callback = opts;
+                opts = null;
+            }
+
             opts = opts || {};
             opts.filter = filter;
             opts.paths = opts.path || {};
