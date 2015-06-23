@@ -28,3 +28,25 @@ gulp.task('main-bower-files', function() {
 ```
 
 The parameters are passed on to [main-bower-files](https://www.npmjs.com/package/main-bower-files#usage). 
+
+
+### Using the Gulp pipeline to minify the resulting JavaScript
+
+The following example produces minified output using [gulp-uglify](https://www.npmjs.com/package/gulp-uglify)
+
+```bash
+$ npm install --save-dev gulp-uglify
+```
+
+```javascript
+var gulp = require('gulp');
+var mainBowerFiles = require('gulp-main-bower-files');
+var uglify = require('gulp-uglify');
+
+gulp.task('uglify', function(){
+    return gulp.src('./bower.json')
+        .pipe(mainBowerFiles( ))
+        .pipe(uglify())
+        .pipe(gulp.dest('wwwroot/libs'));
+});
+```
