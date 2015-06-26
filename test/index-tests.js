@@ -14,55 +14,113 @@ describe('gulp-main-bower-files', function () {
         assert.equal(typeof mainBowerFiles, 'function');
     });
 
-    describe('without a bower file', function () {
-        it('does not fail', function (done) {
-            gulp.src(__dirname + '/not-there.json')
-                .pipe(mainBowerFiles())
-                .pipe(streamAssert.length(0))
-                .pipe(streamAssert.end(done));
+    describe('without a bowerrc file', function () {
+        describe('without a bower file', function () {
+            it('does not fail', function (done) {
+                gulp.src(__dirname + '/no-bowerrc/not-there.json')
+                    .pipe(mainBowerFiles())
+                    .pipe(streamAssert.length(0))
+                    .pipe(streamAssert.end(done));
+            });
+        });
+
+        describe('with a bower file', function () {
+
+            it('can process a single dependency', function (done) {
+                gulp.src(__dirname + '/no-bowerrc/bower-simple.json')
+                    .pipe(mainBowerFiles())
+                    .pipe(streamAssert.length(1))
+                    .pipe(streamAssert.end(done));
+            });
+
+            it('can process multiple dependencies', function (done) {
+                gulp.src(__dirname + '/no-bowerrc/bower-simple-multi.json')
+                    .pipe(mainBowerFiles())
+                    .pipe(streamAssert.length(3))
+                    .pipe(streamAssert.end(done));
+            });
+
+            it('can override main files with filter', function (done) {
+                gulp.src(__dirname + '/no-bowerrc/bower-simple-multi.json')
+                    .pipe(mainBowerFiles('**/*.*', {
+                        overrides: {
+                            multi: {
+                                main: ['*.js', '*.css']
+                            }
+                        }
+                    }))
+                    .pipe(streamAssert.length(4))
+                    .pipe(streamAssert.end(done));
+            });
+
+            it('can override main files without filter', function (done) {
+                gulp.src(__dirname + '/no-bowerrc/bower-simple-multi.json')
+                    .pipe(mainBowerFiles({
+                        overrides: {
+                            multi: {
+                                main: ['*.js', '*.css']
+                            }
+                        }
+                    }))
+                    .pipe(streamAssert.length(4))
+                    .pipe(streamAssert.end(done));
+            });
         });
     });
 
-    describe('with a bower file', function () {
 
-        it('can process a single dependency', function (done) {
-            gulp.src(__dirname + '/no-bowerrc/bower-simple.json')
-                .pipe(mainBowerFiles())
-                .pipe(streamAssert.length(1))
-                .pipe(streamAssert.end(done));
+    describe('with a bowerrc file', function () {
+        describe('without a bower file', function () {
+            it('does not fail', function (done) {
+                gulp.src(__dirname + '/with-bowerrc/not-there.json')
+                    .pipe(mainBowerFiles())
+                    .pipe(streamAssert.length(0))
+                    .pipe(streamAssert.end(done));
+            });
         });
 
-        it('can process multiple dependencies', function (done) {
-            gulp.src(__dirname + '/no-bowerrc/bower-simple-multi.json')
-                .pipe(mainBowerFiles())
-                .pipe(streamAssert.length(3))
-                .pipe(streamAssert.end(done));
-        });
+        describe('with a bower file', function () {
 
-        it('can override main files with filter', function (done) {
-            gulp.src(__dirname + '/no-bowerrc/bower-simple-multi.json')
-                .pipe(mainBowerFiles('**/*.*', {
-                    overrides: {
-                        multi: {
-                            main: ['*.js', '*.css']
+            it('can process a single dependency', function (done) {
+                gulp.src(__dirname + '/with-bowerrc/bower-simple.json')
+                    .pipe(mainBowerFiles())
+                    .pipe(streamAssert.length(1))
+                    .pipe(streamAssert.end(done));
+            });
+
+            it('can process multiple dependencies', function (done) {
+                gulp.src(__dirname + '/with-bowerrc/bower-simple-multi.json')
+                    .pipe(mainBowerFiles())
+                    .pipe(streamAssert.length(3))
+                    .pipe(streamAssert.end(done));
+            });
+
+            it('can override main files with filter', function (done) {
+                gulp.src(__dirname + '/with-bowerrc/bower-simple-multi.json')
+                    .pipe(mainBowerFiles('**/*.*', {
+                        overrides: {
+                            multi: {
+                                main: ['*.js', '*.css']
+                            }
                         }
-                    }
-                }))
-                .pipe(streamAssert.length(4))
-                .pipe(streamAssert.end(done));
-        });
+                    }))
+                    .pipe(streamAssert.length(4))
+                    .pipe(streamAssert.end(done));
+            });
 
-        it('can override main files without filter', function (done) {
-            gulp.src(__dirname + '/no-bowerrc/bower-simple-multi.json')
-                .pipe(mainBowerFiles({
-                    overrides: {
-                        multi: {
-                            main: ['*.js', '*.css']
+            it('can override main files without filter', function (done) {
+                gulp.src(__dirname + '/with-bowerrc/bower-simple-multi.json')
+                    .pipe(mainBowerFiles({
+                        overrides: {
+                            multi: {
+                                main: ['*.js', '*.css']
+                            }
                         }
-                    }
-                }))
-                .pipe(streamAssert.length(4))
-                .pipe(streamAssert.end(done));
+                    }))
+                    .pipe(streamAssert.length(4))
+                    .pipe(streamAssert.end(done));
+            });
         });
     });
+
 });
