@@ -9,6 +9,18 @@ var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
 var mainBowerFiles = require('main-bower-files');
 var fs = require('fs');
+var path = require('path');
+
+function getBowerFolder(base) {
+    var rcPath = path.join(base, '.bowerrc');
+    if (fs.existsSync(rcPath)) {
+        var config = JSON.parse(fs.readFileSync(rcPath));
+        if (config.directory) {
+            return config.directory;
+        }
+    }
+    return 'bower_components/';
+}
 
 module.exports = function (filter, opts, callback) {
     return through.obj(function (file, enc, cb) {
@@ -18,6 +30,8 @@ module.exports = function (filter, opts, callback) {
         }
 
         if (file.isBuffer()) {
+            var bowerFolder = getBowerFolder(file.base);
+
             if (typeof filter === 'function') {
                 callback = filter;
                 opts = null;
@@ -37,7 +51,7 @@ module.exports = function (filter, opts, callback) {
             opts.filter = filter;
             opts.paths = opts.path || {};
             opts.paths.bowerJson = file.path;
-            opts.paths.bowerDirectory = file.base += 'bower_components/';
+            opts.paths.bowerDirectory = file.base += bowerFolder;
 
             var fileNames = mainBowerFiles(opts, callback);
 
