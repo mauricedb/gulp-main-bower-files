@@ -1,4 +1,5 @@
 {
+  "main": "main.js",
   "dependencies": {
     "simple": "*",
     "multi": "*"
