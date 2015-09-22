@@ -1,6 +1,7 @@
 # gulp-main-bower-files
 ================
 
+[![NPM](https://nodei.co/npm/gulp-main-bower-files.png)](https://npmjs.org/package/gulp-main-bower-files)
 [![Dependency Status](https://david-dm.org/mauricedb/gulp-main-bower-files.svg)](https://david-dm.org/mauricedb/gulp-main-bower-files)
 [![Build Status](https://travis-ci.org/mauricedb/gulp-main-bower-files.svg?branch=master)](https://travis-ci.org/mauricedb/gulp-main-bower-files)
 
