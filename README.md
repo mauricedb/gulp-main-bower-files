@@ -5,6 +5,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/gulp-main-bower-files.svg?style=flat-square)](http://npm-stat.com/charts.html?package=gulp-main-bower-files&from=2015-09-01)
 [![Dependency Status](https://david-dm.org/mauricedb/gulp-main-bower-files.svg)](https://david-dm.org/mauricedb/gulp-main-bower-files)
 [![Build Status](https://travis-ci.org/mauricedb/gulp-main-bower-files.svg?branch=master)](https://travis-ci.org/mauricedb/gulp-main-bower-files)
+[![codecov.io](http://codecov.io/github/mauricedb/gulp-main-bower-files/coverage.svg?branch=master)](http://codecov.io/github/mauricedb/gulp-main-bower-files?branch=master)
 
 Use [main-bower-files](https://www.npmjs.com/package/main-bower-files) in a more gulp like way. 
 

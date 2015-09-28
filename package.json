@@ -4,7 +4,9 @@
   "description": "Use main-bower-files in a more gulp like way.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha",
+    "test:watch": "mocha --watch",
+    "report-coverage": "cat ./coverage/lcov.info | ./node_modules/.bin/codecov"
   },
   "repository": {
     "type": "git",
