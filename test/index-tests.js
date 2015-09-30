@@ -40,10 +40,30 @@ describe('gulp-main-bower-files', function () {
                     .pipe(streamAssert.end(done));
             });
 
+            it('can process multiple dependencies via a callback function', function (done) {
+                gulp.src(__dirname + '/no-bowerrc/bower-simple-multi.json')
+                    .pipe(mainBowerFiles(function (err, files) {
+                        assert.equal(err, null);
+                        assert.equal(files.length, 3);
+                    }))
+                    .pipe(streamAssert.length(3))
+                    .pipe(streamAssert.end(done));
+            });
+
             it('can process multiple dependencies with includeSelf', function (done) {
                 gulp.src(__dirname + '/no-bowerrc/bower-simple-multi.json')
                     .pipe(mainBowerFiles({includeSelf: true}))
                     .pipe(streamAssert.length(4))
+                    .pipe(streamAssert.end(done));
+            });
+
+            it('can override main files with filter with a callback', function (done) {
+                gulp.src(__dirname + '/no-bowerrc/bower-simple-multi.json')
+                    .pipe(mainBowerFiles('**/*.*', function (err, files) {
+                        assert.equal(err, null);
+                        assert.equal(files.length, 3);
+                    }))
+                    .pipe(streamAssert.length(3))
                     .pipe(streamAssert.end(done));
             });
 
@@ -55,6 +75,22 @@ describe('gulp-main-bower-files', function () {
                                 main: ['*.js', '*.css']
                             }
                         }
+                    }))
+                    .pipe(streamAssert.length(4))
+                    .pipe(streamAssert.end(done));
+            });
+
+            it('can load main files with callback function', function (done) {
+                gulp.src(__dirname + '/no-bowerrc/bower-simple-multi.json')
+                    .pipe(mainBowerFiles({
+                        overrides: {
+                            multi: {
+                                main: ['*.js', '*.css']
+                            }
+                        }
+                    }, function(err, files){
+                        assert.equal(err, null);
+                        assert.equal(files.length, 4);
                     }))
                     .pipe(streamAssert.length(4))
                     .pipe(streamAssert.end(done));
