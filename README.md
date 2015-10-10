@@ -64,7 +64,7 @@ var uglify = require('gulp-uglify');
 var gulpFilter = require('gulp-filter');
 
 gulp.task('main-bower-files', function() {
-    var filterJS = gulpFilter('**/*.js');
+    var filterJS = gulpFilter('**/*.js', { restore: true });
     return gulp.src('./bower.json')
         .pipe(mainBowerFiles({
             overrides: {
@@ -80,7 +80,7 @@ gulp.task('main-bower-files', function() {
         .pipe(filterJS)
         .pipe(concat('vendor.js'))
         .pipe(uglify())
-        .pipe(filterJS.restore())
+        .pipe(filterJS.restore)
         .pipe(gulp.dest('./wwwroot/libs'));
 });
 ```
