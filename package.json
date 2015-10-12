@@ -1,6 +1,6 @@
 {
   "name": "gulp-main-bower-files",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Use main-bower-files in a more gulp like way.",
   "main": "index.js",
   "scripts": {
