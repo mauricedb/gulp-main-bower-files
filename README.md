@@ -26,7 +26,7 @@ var mainBowerFiles = require('gulp-main-bower-files');
 gulp.task('main-bower-files', function() {
     return gulp.src('./bower.json')
         .pipe(mainBowerFiles([[filter, ]options][, callback]))
-        .pipe(gulp.dest('./wwwroot/libs');
+        .pipe(gulp.dest('./wwwroot/libs'));
 });
 ```
 
