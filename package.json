@@ -27,7 +27,7 @@
   "homepage": "https://github.com/mauricedb/gulp-main-bower-files",
   "dependencies": {
     "gulp-util": "3.0.7",
-    "main-bower-files": "2.13.0",
+    "main-bower-files": "2.13.1",
     "through2": "2.0.1"
   },
   "devDependencies": {
