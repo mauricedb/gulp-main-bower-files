@@ -59,6 +59,7 @@ module.exports = function (filter, opts, callback) {
                 var newFile = file.clone();
                 newFile.path = fileName;
                 newFile.contents = fs.readFileSync(newFile.path);
+                newFile.stat = fs.statSync(newFile.path);
                 this.push(newFile);
             }, this);
         }
