@@ -34,7 +34,7 @@
     "codecov.io": "0.1.6",
     "gulp": "3.9.1",
     "gulp-debug": "3.1.0",
-    "gulp-mocha": "4.3.0",
+    "gulp-mocha": "4.3.1",
     "istanbul": "0.4.5",
     "mocha": "3.3.0",
     "stream-assert": "2.0.3"
