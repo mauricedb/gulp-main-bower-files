@@ -1,6 +1,8 @@
 # gulp-main-bower-files
 ================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mauricedb/gulp-main-bower-files.svg)](https://greenkeeper.io/)
+
 [![npm version](https://img.shields.io/npm/v/gulp-main-bower-files.svg?style=flat-square)](https://www.npmjs.org/package/gulp-main-bower-files)
 [![npm downloads](https://img.shields.io/npm/dm/gulp-main-bower-files.svg?style=flat-square)](http://npm-stat.com/charts.html?package=gulp-main-bower-files&from=2015-09-01)
 [![Dependency Status](https://david-dm.org/mauricedb/gulp-main-bower-files.svg)](https://david-dm.org/mauricedb/gulp-main-bower-files)
