@@ -51,7 +51,7 @@ module.exports = function (filter, opts, callback) {
             opts.filter = filter;
             opts.paths = opts.path || {};
             opts.paths.bowerJson = file.path;
-            opts.paths.bowerDirectory = file.base += bowerFolder;
+            opts.paths.bowerDirectory = path.resolve(file.base, bowerFolder);
 
             var fileNames = mainBowerFiles(opts, callback);
 
