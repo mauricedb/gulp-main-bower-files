@@ -29,7 +29,7 @@
   "dependencies": {
     "gulp-util": "3.0.8",
     "main-bower-files": "2.13.1",
-    "through2": "2.0.5"
+    "through2": "3.0.0"
   },
   "devDependencies": {
     "codecov.io": "0.1.6",
