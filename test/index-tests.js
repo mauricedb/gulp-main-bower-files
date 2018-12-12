@@ -14,7 +14,7 @@ describe('gulp-main-bower-files', function() {
     describe('without a bower file', function() {
       it('does not fail', function(done) {
         gulp
-          .src(__dirname + '/no-bowerrc/not-there.json')
+          .src(__dirname + '/no-bowerrc/not-there.json', { allowEmpty: true })
           .pipe(mainBowerFiles())
           .pipe(streamAssert.length(0))
           .pipe(streamAssert.end(done));
@@ -132,7 +132,7 @@ describe('gulp-main-bower-files', function() {
     describe('without a bower file', function() {
       it('does not fail', function(done) {
         gulp
-          .src(__dirname + '/with-bowerrc/not-there.json')
+          .src(__dirname + '/with-bowerrc/not-there.json', { allowEmpty: true })
           .pipe(mainBowerFiles())
           .pipe(streamAssert.length(0))
           .pipe(streamAssert.end(done));
