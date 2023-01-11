@@ -38,7 +38,7 @@
     "gulp-mocha": "8.0.0",
     "istanbul": "0.4.5",
     "mocha": "10.2.0",
-    "prettier": "2.8.1",
+    "prettier": "2.8.2",
     "stream-assert": "2.0.3"
   }
 }
