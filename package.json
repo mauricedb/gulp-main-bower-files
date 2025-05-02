@@ -37,7 +37,7 @@
     "gulp-debug": "5.0.1",
     "gulp-mocha": "10.0.1",
     "istanbul": "0.4.5",
-    "mocha": "11.1.0",
+    "mocha": "11.2.2",
     "prettier": "3.5.3",
     "stream-assert": "2.0.3"
   }
