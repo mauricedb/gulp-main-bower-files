@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "codecov.io": "0.1.6",
-    "gulp": "5.0.0",
+    "gulp": "5.0.1",
     "gulp-debug": "5.0.1",
     "gulp-mocha": "10.0.1",
     "istanbul": "0.4.5",
