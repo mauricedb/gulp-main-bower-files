@@ -29,7 +29,7 @@
   "dependencies": {
     "main-bower-files": "2.13.3",
     "plugin-error": "2.0.1",
-    "through2": "4.0.2"
+    "through2": "5.0.0"
   },
   "devDependencies": {
     "codecov.io": "0.1.6",
